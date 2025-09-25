@@ -1,0 +1,14 @@
+Description: Add LDFLAGS in Makefile.
+Author: Ermakov Alexander <ermakovav@altgtu.ru>
+
+--- dupd-1.7.3.orig/Makefile
++++ dupd-1.7.3/Makefile
+@@ -113,7 +113,7 @@ endif
+ 
+ 
+ dupd: src/optgen.c src/optgen.h $(OBJS)
+-	$(CCC) $(CFLAGS) $(OBJS) $(LIB) \
++	$(CCC) $(CFLAGS) $(LDFLAGS) $(OBJS) $(LIB) \
+ 	    -lsqlite3 -lcrypto -lpthread -lm -o dupd
+ 
+ $(BUILD)/%.o: src/%.c src/%.h

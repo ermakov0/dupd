@@ -1,0 +1,37 @@
+Description: Fix spelling errors.
+Author: Ermakov Alexander <ermakovav@altgtu.ru>
+
+---
+--- dupd-1.7.3.orig/src/optgen.c
++++ dupd-1.7.3/src/optgen.c
+@@ -1312,7 +1312,7 @@ void opt_show_help()
+   printf("  -F --hash NAME           specify alternate hash function\n");
+   printf("  -v --verbose             increase verbosity (may be repeated for more)\n");
+   printf("  -V --verbose-level N     set verbosity level to N\n");
+-  printf("  -q --quiet               quiet, supress all output except fatal errors\n");
++  printf("  -q --quiet               quiet, suppress all output except fatal errors\n");
+   printf("  -d --db PATH             path to dupd database file\n");
+   printf("  -h --help                show brief usage info\n");
+   printf("\n");
+--- dupd-1.7.3.orig/src/optgen.h
++++ dupd-1.7.3/src/optgen.h
+@@ -154,7 +154,7 @@
+ // verbose_level (-V,--verbose-level) N : set verbosity level to N
+ #define OPT_verbose_level 35
+ 
+-// quiet (-q,--quiet) : quiet, supress all output except fatal errors
++// quiet (-q,--quiet) : quiet, suppress all output except fatal errors
+ #define OPT_quiet 36
+ 
+ // db (-d,--db) PATH : path to dupd database file
+--- dupd-1.7.3.orig/src/options.conf
++++ dupd-1.7.3/src/options.conf
+@@ -89,7 +89,7 @@ O:H,hardlink:::create hard links for del
+ O:F,hash:NAME::specify alternate hash function
+ O:v,verbose:::increase verbosity (may be repeated for more)
+ O:V,verbose-level:N::set verbosity level to N
+-O:q,quiet:::quiet, supress all output except fatal errors
++O:q,quiet:::quiet, suppress all output except fatal errors
+ O:d,db:PATH::path to dupd database file
+ O:h,help:::show brief usage info
+ H:,no-unique:::ignore unique table even if present, for testing
