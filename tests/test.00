@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+source common
+
+DESC="no options"
+
+$DUPD_CMD > /dev/null
+checkrv $?
+
+tdone

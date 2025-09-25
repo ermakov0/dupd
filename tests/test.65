@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+source common
+
+# obsolete
+DESC="scan(analyze)"
+tdone

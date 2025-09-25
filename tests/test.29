@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+source common
+
+DESC="scan(files2) --uniques"
+$DUPD_CMD scan --path `pwd`/files -q --uniques --x-small-buffers
+checkrv $?
+
+DESC="ls --no-unique"
+$DUPD_CMD ls --x-small-buffers -v --no-unique --cut `pwd`/files/ --path `pwd`/files/ > nreport
+checkrv $?
+
+check_nreport output.29
+
+tdone

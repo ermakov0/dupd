@@ -1,0 +1,71 @@
+#
+#  Copyright 2014-2018 Jyri J. Virkki <jyri@virkki.com>
+#
+#  This file is part of dupd.
+#
+#  dupd is free software: you can redistribute it and/or modify it
+#  under the terms of the GNU General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or
+#  (at your option) any later version.
+#
+#  dupd is distributed in the hope that it will be useful, but
+#  WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+#  General Public License for more details.
+#
+#  You should have received a copy of the GNU General Public License
+#  along with dupd.  If not, see <http://www.gnu.org/licenses/>.
+#
+
+rm -f report nreport
+
+UNAME=`uname`
+WHOAMI=`whoami`
+
+check_equal () {
+    if [ "$1" != "$2" ]; then
+        echo "FAIL ${DESC}"
+        exit 1
+    else
+        echo "OK ${DESC}"
+    fi
+}
+
+checkrv () {
+    if [ "$1" != "0" ]; then
+        echo "FAIL ${DESC}"
+        if [[ "$FAILOK" =~ "$UNAME" ]]; then
+            echo "IGNORING rv on $FAILOK"
+        elif [[ "$FAILUSEROK" == "$WHOAMI" ]]; then
+            echo "IGNORING rv due to $FAILUSEROK"
+        else
+            exit 1
+        fi
+    else
+        echo "OK ${DESC}"
+    fi
+}
+
+checkerr () {
+    if [ "$1" != "1" ]; then
+        echo "FAIL ${DESC}"
+        exit 1
+    else
+        echo "OK ${DESC}"
+    fi
+}
+
+check_nreport () {
+    DESC="${DESC}: verifying against $1"
+    sort nreport > report
+    if [[ "$FAILUSEROK" == "$WHOAMI" ]]; then
+        echo "IGNORING result due to $FAILUSEROK"
+        return
+    fi
+    diff report $1
+    checkrv $?
+}
+
+tdone () {
+    rm -f report nreport stx
+}

@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+
+source common
+
+DESC="scan(files3): 20K files"
+
+rm -f files3/fileA files3/fileB files3/fileC files3/fileD
+
+for ((i=1; i<=20000; i++));
+do
+    echo $i > files3/tmp.$i
+done
+
+$DUPD_CMD scan --path `pwd`/files3  --uniques --x-small-buffers -v > /dev/null
+checkrv $?
+
+DESC="generate report"
+$DUPD_CMD report --cut `pwd`/files3/ | grep -v "Duplicate report from database" > nreport
+checkrv $?
+
+check_nreport output.40
+
+#----------------------------------
+# refresh shouldn't change anything
+
+DESC="nothing changed, try refresh"
+$DUPD_CMD refresh > /dev/null
+checkrv $?
+
+DESC="generate report"
+$DUPD_CMD report --cut `pwd`/files3/ | grep -v "Duplicate report from database" > nreport
+checkrv $?
+
+check_nreport output.40
+
+#-------------------------------
+# This time with ssd scan
+
+DESC="scan(files3): 20K files SSD"
+
+$DUPD_CMD scan --path `pwd`/files3  --uniques --x-small-buffers -V 9 --ssd > /dev/null
+checkrv $?
+
+DESC="generate report"
+$DUPD_CMD report --cut `pwd`/files3/ | grep -v "Duplicate report from database" > nreport
+checkrv $?
+
+check_nreport output.40
+
+# Clean out all the tmp test files
+find files3 -name "tmp.*" | xargs rm -f
+
+tdone

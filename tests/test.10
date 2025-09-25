@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+source common
+
+DESC="scan(files) SHA512"
+
+$DUPD_CMD scan --path `pwd`/files -q -F sha512
+checkrv $?
+
+DESC="dups without --uniques"
+$DUPD_CMD dups --cut `pwd`/files/ --path `pwd`/files/ > nreport
+checkrv $?
+
+check_nreport output.10
+
+tdone

@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+source common
+
+DESC="scan(files)"
+$DUPD_CMD scan --path `pwd`/files -q
+checkrv $?
+
+DESC="uniques"
+$DUPD_CMD uniques --cut `pwd`/files/ --path `pwd`/files/ > nreport
+checkrv $?
+
+check_nreport output.12
+
+tdone

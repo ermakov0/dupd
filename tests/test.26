@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+source common
+
+rm -f rmsh.sh
+
+DESC="scan(files2)"
+$DUPD_CMD scan --path `pwd`/files2 -q
+checkrv $?
+
+DESC="generate rmsh, no links"
+$DUPD_CMD rmsh > rmsh.sh
+
+if [ -e rmsh.sh ]; then
+    echo "OK ${DESC}"
+else
+    echo "FAIL ${DESC}"
+    exit 1
+fi
+
+rm -f rmsh.sh
+
+tdone

@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+source common
+
+DESC="scan(files2)"
+$DUPD_CMD scan --path `pwd`/files2 -q
+checkrv $?
+
+DESC="cut doesn't match any part of path"
+$DUPD_CMD ls -p `pwd`/files2 --cut not/in/path > /dev/null
+checkrv $?
+
+tdone

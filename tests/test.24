@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+source common
+
+DESC="scan(files2) hidden files"
+
+$DUPD_CMD scan --path `pwd`/files2  --hidden -q
+checkrv $?
+
+DESC="dups report"
+$DUPD_CMD dups --cut `pwd`/files2/ --path `pwd`/files2/ > nreport
+checkrv $?
+
+check_nreport output.24
+
+tdone

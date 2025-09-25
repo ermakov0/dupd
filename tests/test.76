@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+
+source common
+
+DESC="scan larger files (files9)"
+
+(cd ./files9 && cat files.tar.gz | gunzip | tar xf -)
+
+$DUPD_CMD scan --path `pwd`/files9 -q
+checkrv $?
+
+DESC="report"
+$DUPD_CMD report --cut `pwd`/files9/ | grep -v "Duplicate report from database" > nreport
+checkrv $?
+check_nreport output.76
+
+DESC="scan larger files HDD w/SHA512 (files9)"
+
+$DUPD_CMD scan --path `pwd`/files9 -q --hdd --hash sha512
+checkrv $?
+
+DESC="report"
+$DUPD_CMD report --cut `pwd`/files9/ | grep -v "Duplicate report from database" > nreport
+checkrv $?
+check_nreport output.76
+
+DESC="scan larger files HDD w/SHA1 verbose (files9)"
+
+$DUPD_CMD scan --path `pwd`/files9 --hdd --hash sha1 -V 3 > /dev/null
+checkrv $?
+
+DESC="report"
+$DUPD_CMD report --cut `pwd`/files9/ | grep -v "Duplicate report from database" > nreport
+checkrv $?
+check_nreport output.76
+
+DESC="scan larger files HDD w/xxHash verbose (files9)"
+
+$DUPD_CMD scan --path `pwd`/files9 --hdd --hash xxhash -V 3 > /dev/null
+checkrv $?
+
+DESC="report"
+$DUPD_CMD report --cut `pwd`/files9/ | grep -v "Duplicate report from database" > nreport
+checkrv $?
+check_nreport output.76
+
+(cd ./files9 && rm -f ?)
+
+tdone

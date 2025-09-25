@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+source common
+
+DESC="scan(files)"
+$DUPD_CMD scan --path `pwd`/files -q --hdd
+checkrv $?
+
+DESC="csv report"
+$DUPD_CMD report --format csv --cut `pwd`/files/ | tr ',' '\n'  > nreport
+checkrv $?
+
+# The CSV output was split into lines above, not entirely realistic,
+# but needed to have a consistent ordering to compare.
+
+check_nreport output.77
+
+tdone

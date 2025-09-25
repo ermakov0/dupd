@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+source common
+
+DESC="verbose scan(files), single threaded"
+$DUPD_CMD scan --intblocks 2 --path `pwd`/files -v -v -v -v -v -v --no-thread-scan > /dev/null
+checkrv $?
+
+DESC="generate report"
+$DUPD_CMD report --cut `pwd`/files/ | grep -v "Duplicate report from database" > nreport
+checkrv $?
+
+check_nreport output.01
+
+tdone

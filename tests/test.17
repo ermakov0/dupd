@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+source common
+
+DESC="scan(files)"
+
+$DUPD_CMD scan --path `pwd`/files -q
+checkrv $?
+
+DESC="file: excluding path of its duplicates"
+$DUPD_CMD file --file `pwd`/files/many/ma.1 --cut `pwd`/files/ --exclude-path `pwd`/files/many/ > nreport
+checkrv $?
+
+check_nreport output.17
+
+tdone
