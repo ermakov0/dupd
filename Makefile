@@ -43,6 +43,7 @@ endif
 # https://www.gnu.org/prep/standards/html_node/DESTDIR.html
 
 INSTALL_PREFIX ?= /usr/local
+MAN_BASE ?= $(INSTALL_PREFIX)/man
 
 BUILD=$(TOP)/build
 CCC=$(CC) -Wall -Wextra -std=gnu99 $(OPT)
@@ -195,6 +196,9 @@ release:
 install: dupd
 	mkdir -p $(DESTDIR)$(INSTALL_PREFIX)/bin/
 	cp dupd $(DESTDIR)$(INSTALL_PREFIX)/bin/
+	mkdir -p $(DESTDIR)$(MAN_BASE)/man1
+	cp man/dupd.1 $(DESTDIR)$(MAN_BASE)/man1
 
 uninstall:
 	rm -f $(DESTDIR)$(INSTALL_PREFIX)/bin/dupd
+	rm -f $(DESTDIR)$(MAN_BASE)/man1/dupd.1

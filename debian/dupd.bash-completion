@@ -1,0 +1,37 @@
+#!/usr/bin/bash
+
+# bash completion for dupd(1)
+
+_dupd() {
+  local cur prev words
+
+  _get_comp_words_by_ref cur prev
+
+  case ${COMP_WORDS[1]} in
+    scan)
+      words="-p --path -m --minsize --buflimit -X --one-file-system --hidden -I --hardlink-is-unique --stats-file"
+      ;;
+    report)
+      words="-m --minsize --cut --format"
+      ;;
+    file)
+      words="--file --cut --exclude --hardlink-is-unique"
+      ;;
+    ls|dups|uniques)
+      words="-p --path --cut --exclude --hardlink-is-unique"
+      ;;
+    rmsh)
+      words="--link --hardlink"
+      ;;
+    *)
+      if [[ ${cur} == -* ]] ; then
+        words="-d --db -F --hash -v --verbose -V --verbose-level -q --quiet -h --help"
+      else
+        words="scan report file ls dups uniques refresh validate rmsh help usage man license version"
+      fi
+      ;;
+  esac
+  COMPREPLY=($(compgen -W "${words}" -- ${cur}))
+}
+
+complete -F _dupd dupd

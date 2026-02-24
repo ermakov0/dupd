@@ -1,5 +1,7 @@
 Description: Add LDFLAGS in Makefile.
 Author: Ermakov Alexander <ermakovav@altgtu.ru>
+Forwarded: https://github.com/jvirkki/dupd/pull/48
+Last-Update: 2026-02-24
 
 --- dupd-1.7.3.orig/Makefile
 +++ dupd-1.7.3/Makefile

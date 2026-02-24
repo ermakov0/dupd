@@ -1,21 +1,23 @@
 Source: dupd
-Section: utils
-Priority: optional
 Maintainer: Ermakov Alexander <ermakovav@altgtu.ru>
-Rules-Requires-Root: no
+Section: utils
 Build-Depends:
  debhelper-compat (= 13),
- sqlite3,
+ bash-completion,
  libsqlite3-dev,
  libssl-dev,
-Standards-Version: 4.7.2
+Standards-Version: 4.7.3
 Homepage: https://github.com/jvirkki/dupd
+Vcs-Browser: https://github.com/ermakov0/dupd
+Vcs-Git: https://github.com/ermakov0/dupd.git
 
 Package: dupd
 Architecture: amd64
 Depends:
- ${shlibs:Depends},
  ${misc:Depends},
+ ${shlibs:Depends},
+Suggests:
+ bash-completion,
 Description: duplicate file finder CLI utility
  dupd enables an exploratory approach to finding duplicates in your
  filesystems instead of only showing a static list of duplicate
