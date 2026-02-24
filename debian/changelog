@@ -6,7 +6,7 @@ dupd (1.7.3-2) unstable; urgency=medium
   * Watch version 5 (trivial update)
   * Std-ver 4.7.3 (trivial update)
 
- -- Ermakov Alexander <ermakovav@altgtu.ru>  Tue, 24 Feb 2026 13:38:51 +0700
+ -- Ermakov Alexander <ermakovav@altgtu.ru>  Tue, 24 Feb 2026 15:25:44 +0700
 
 dupd (1.7.3-1) unstable; urgency=medium
 
