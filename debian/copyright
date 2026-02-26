@@ -1,6 +1,7 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Source: https://github.com/jvirkki/dupd
 Upstream-Name: dupd
+Upstream-Contact: Jyri J. Virkki <jyri@virkki.com>
+Source: https://github.com/jvirkki/dupd
 
 Files: *
 Copyright:

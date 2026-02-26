@@ -2,7 +2,7 @@ dupd (1.7.3-3) unstable; urgency=medium
 
   * Fix autopkgtest
 
- -- Ermakov Alexander <ermakovav@altgtu.ru>  Thu, 26 Feb 2026 09:04:08 +0700
+ -- Ermakov Alexander <ermakovav@altgtu.ru>  Thu, 26 Feb 2026 09:34:35 +0700
 
 dupd (1.7.3-2) unstable; urgency=medium
 
