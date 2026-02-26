@@ -1,2 +1,3 @@
 02-add-ldflags.patch
 03-fix-spelling-error.patch
+04-fix-autopkgtest.patch

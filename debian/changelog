@@ -1,3 +1,9 @@
+dupd (1.7.3-3) unstable; urgency=medium
+
+  * Fix autopkgtest
+
+ -- Ermakov Alexander <ermakovav@altgtu.ru>  Thu, 26 Feb 2026 09:04:08 +0700
+
 dupd (1.7.3-2) unstable; urgency=medium
 
   * Forwarded patches
@@ -5,6 +11,8 @@ dupd (1.7.3-2) unstable; urgency=medium
   * Add autopkgtest
   * Watch version 5 (trivial update)
   * Std-ver 4.7.3 (trivial update)
+  [ Alex Myczko ]
+  * d/control: set Architecture to any.
 
  -- Ermakov Alexander <ermakovav@altgtu.ru>  Tue, 24 Feb 2026 15:25:44 +0700
 

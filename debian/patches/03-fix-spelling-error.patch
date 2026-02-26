@@ -1,9 +1,8 @@
 Description: Fix spelling errors.
 Author: Ermakov Alexander <ermakovav@altgtu.ru>
 Forwarded: https://github.com/jvirkki/dupd/pull/49
-Last-Update: 2026-02-24
+Last-Update: 2026-02-25
 
----
 --- dupd-1.7.3.orig/src/optgen.c
 +++ dupd-1.7.3/src/optgen.c
 @@ -1312,7 +1312,7 @@ void opt_show_help()

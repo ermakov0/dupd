@@ -12,7 +12,7 @@ Vcs-Browser: https://github.com/ermakov0/dupd
 Vcs-Git: https://github.com/ermakov0/dupd.git
 
 Package: dupd
-Architecture: amd64
+Architecture: any
 Depends:
  ${misc:Depends},
  ${shlibs:Depends},
