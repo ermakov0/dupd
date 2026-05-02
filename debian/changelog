@@ -1,8 +1,16 @@
+dupd (1.7.3-4) unstable; urgency=medium
+
+  * Remove built-in manpage (binary size reduction 31% on amd64).
+  * d/control: set Architecture to linux-any.
+  * Std-ver 4.7.4 (trivial update)
+
+ -- Alexander Ermakov <ermakovav@altgtu.ru>  Sat, 02 May 2026 12:00:55 +0700
+
 dupd (1.7.3-3) unstable; urgency=medium
 
   * Fix autopkgtest
 
- -- Ermakov Alexander <ermakovav@altgtu.ru>  Thu, 26 Feb 2026 09:34:35 +0700
+ -- Alexander Ermakov <ermakovav@altgtu.ru>  Thu, 26 Feb 2026 09:34:35 +0700
 
 dupd (1.7.3-2) unstable; urgency=medium
 
@@ -14,10 +22,10 @@ dupd (1.7.3-2) unstable; urgency=medium
   [ Alex Myczko ]
   * d/control: set Architecture to any.
 
- -- Ermakov Alexander <ermakovav@altgtu.ru>  Tue, 24 Feb 2026 15:25:44 +0700
+ -- Alexander Ermakov <ermakovav@altgtu.ru>  Tue, 24 Feb 2026 15:25:44 +0700
 
 dupd (1.7.3-1) unstable; urgency=medium
 
   * Initial release. (Closes: #901944)
 
- -- Ermakov Alexander <ermakovav@altgtu.ru>  Fri, 19 Sep 2025 15:43:22 +0700
+ -- Alexander Ermakov <ermakovav@altgtu.ru>  Fri, 19 Sep 2025 15:43:22 +0700

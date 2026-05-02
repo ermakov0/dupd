@@ -23,12 +23,10 @@
 #include <strings.h>
 #include <unistd.h>
 
-#include "copying.h"
 #include "filecompare.h"
 #include "hash.h"
 #include "hashlist.h"
 #include "main.h"
-#include "man.h"
 #include "optgen.h"
 #include "paths.h"
 #include "readlist.h"
@@ -117,10 +115,6 @@ char * log_level_name[] = {
 static void show_banner()
 {
   printf("dupd " DUPD_VERSION " Copyright 2012-2023 Jyri J. Virkki\n");
-  printf("This program comes with ABSOLUTELY NO WARRANTY.\n");
-  printf("This is free software, and you are welcome to redistribute it\n");
-  printf("under certain conditions. Run 'dupd license' for details.\n");
-  printf("\n");
 }
 
 
@@ -134,21 +128,6 @@ static void show_help()
   printf("%% dupd operation options\n");
   printf("\n");
   opt_show_help();
-}
-
-
-/** ***************************************************************************
- * Show built-in documentation and exit.
- * Content is compiled into the binary from the manpage.
- *
- */
-static void show_usage()
-{
-  show_banner();
-
-  for (unsigned int c = 0; c < man_dupd_len; c++) {
-    putchar((char)man_dupd[c]);
-  }
 }
 
 
@@ -257,9 +236,6 @@ static int process_args(int argc, char * argv[])
 
   if (rv == OPTGEN_NONE) {
     show_banner();
-    printf("\n");
-    printf("Run 'dupd help' for a summary of available options.\n");
-    printf("Run 'dupd usage' for more documentation.\n");
     return 1;
   }
 
@@ -512,15 +488,12 @@ int main(int argc, char * argv[])
     case COMMAND_refresh:   operation_refresh();         break;
     case COMMAND_report:    operation_report();          break;
     case COMMAND_uniques:   operation_uniques();         break;
-    case COMMAND_license:   show_license();              break;
     case COMMAND_version:   printf(DUPD_VERSION "\n");   break;
     case COMMAND_dups:      operation_dups();            break;
     case COMMAND_file:      operation_file();            break;
     case COMMAND_ls:        operation_ls();              break;
     case COMMAND_rmsh:      operation_shell_script();    break;
     case COMMAND_validate:  rv = operation_validate();   break;
-    case COMMAND_usage:     show_usage();                break;
-    case COMMAND_man:       show_usage();                break;
     case COMMAND_help:      show_help();                 break;
     case COMMAND_testing:   testing();                   break;
     case OPTGEN_NO_COMMAND: show_help();                 rv = 1; break;
@@ -553,10 +526,8 @@ int main(int argc, char * argv[])
   }
 
   if (log_level >= 0) {
-    if (operation == COMMAND_scan ||
-        operation == COMMAND_refresh || operation == COMMAND_license ||
+    if (operation == COMMAND_scan || operation == COMMAND_refresh ||
         operation == COMMAND_version || operation == COMMAND_validate ||
-        operation == COMMAND_usage || operation == COMMAND_man ||
         operation == COMMAND_help) {
 
       if (!strcmp("dev", DUPD_VERSION + strlen(DUPD_VERSION) - 3)) {

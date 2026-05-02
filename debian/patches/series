@@ -1,3 +1,4 @@
-02-add-ldflags.patch
-03-fix-spelling-error.patch
-04-fix-autopkgtest.patch
+0001-Add-LDFLAGS.patch
+0002-Fix-spelling-errors.patch
+0003-Remove-built-in-manpage.patch
+0004-Fix-tests.patch

@@ -1,18 +1,18 @@
 Source: dupd
-Maintainer: Ermakov Alexander <ermakovav@altgtu.ru>
+Maintainer: Alexander Ermakov <ermakovav@altgtu.ru>
 Section: utils
 Build-Depends:
  debhelper-compat (= 13),
  bash-completion,
  libsqlite3-dev,
  libssl-dev,
-Standards-Version: 4.7.3
+Standards-Version: 4.7.4
 Homepage: https://github.com/jvirkki/dupd
 Vcs-Browser: https://github.com/ermakov0/dupd
 Vcs-Git: https://github.com/ermakov0/dupd.git
 
 Package: dupd
-Architecture: any
+Architecture: linux-any
 Depends:
  ${misc:Depends},
  ${shlibs:Depends},

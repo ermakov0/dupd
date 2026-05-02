@@ -25,7 +25,7 @@ _dupd() {
       if [[ ${cur} == -* ]] ; then
         words="-d --db -F --hash -v --verbose -V --verbose-level -q --quiet -h --help"
       else
-        words="scan report file ls dups uniques refresh validate rmsh help usage man license version"
+        words="scan report file ls dups uniques refresh validate rmsh help version"
       fi
       ;;
   esac

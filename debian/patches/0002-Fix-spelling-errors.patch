@@ -1,10 +1,19 @@
-Description: Fix spelling errors.
-Author: Ermakov Alexander <ermakovav@altgtu.ru>
+From: Alexander Ermakov <ermakovav@altgtu.ru>
+Date: Thu, 25 Sep 2025 09:32:01 +0700
+Subject: [PATCH] Fix spelling errors
 Forwarded: https://github.com/jvirkki/dupd/pull/49
-Last-Update: 2026-02-25
+Last-Update: 2026-05-02
 
---- dupd-1.7.3.orig/src/optgen.c
-+++ dupd-1.7.3/src/optgen.c
+---
+ src/optgen.c     | 2 +-
+ src/optgen.h     | 2 +-
+ src/options.conf | 2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/src/optgen.c b/src/optgen.c
+index e0f305d..b50c878 100644
+--- a/src/optgen.c
++++ b/src/optgen.c
 @@ -1312,7 +1312,7 @@ void opt_show_help()
    printf("  -F --hash NAME           specify alternate hash function\n");
    printf("  -v --verbose             increase verbosity (may be repeated for more)\n");
@@ -14,8 +23,10 @@ Last-Update: 2026-02-25
    printf("  -d --db PATH             path to dupd database file\n");
    printf("  -h --help                show brief usage info\n");
    printf("\n");
---- dupd-1.7.3.orig/src/optgen.h
-+++ dupd-1.7.3/src/optgen.h
+diff --git a/src/optgen.h b/src/optgen.h
+index 1cab0b5..211e3db 100644
+--- a/src/optgen.h
++++ b/src/optgen.h
 @@ -154,7 +154,7 @@
  // verbose_level (-V,--verbose-level) N : set verbosity level to N
  #define OPT_verbose_level 35
@@ -25,9 +36,11 @@ Last-Update: 2026-02-25
  #define OPT_quiet 36
  
  // db (-d,--db) PATH : path to dupd database file
---- dupd-1.7.3.orig/src/options.conf
-+++ dupd-1.7.3/src/options.conf
-@@ -89,7 +89,7 @@ O:H,hardlink:::create hard links for del
+diff --git a/src/options.conf b/src/options.conf
+index 98b1740..0fea6fe 100644
+--- a/src/options.conf
++++ b/src/options.conf
+@@ -89,7 +89,7 @@ O:H,hardlink:::create hard links for deleted files
  O:F,hash:NAME::specify alternate hash function
  O:v,verbose:::increase verbosity (may be repeated for more)
  O:V,verbose-level:N::set verbosity level to N
@@ -36,3 +49,6 @@ Last-Update: 2026-02-25
  O:d,db:PATH::path to dupd database file
  O:h,help:::show brief usage info
  H:,no-unique:::ignore unique table even if present, for testing
+-- 
+2.53.0
+

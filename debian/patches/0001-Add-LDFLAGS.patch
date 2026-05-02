@@ -1,0 +1,26 @@
+From: Alexander Ermakov <ermakovav@altgtu.ru>
+Date: Thu, 25 Sep 2025 09:30:03 +0700
+Subject: [PATCH] Add LDFLAGS
+Forwarded: https://github.com/jvirkki/dupd/pull/48
+Last-Update: 2026-05-02
+
+---
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Makefile b/Makefile
+index fff16f1..88aea07 100644
+--- a/Makefile
++++ b/Makefile
+@@ -114,7 +114,7 @@ endif
+ 
+ 
+ dupd: src/optgen.c src/optgen.h $(OBJS)
+-	$(CCC) $(CFLAGS) $(OBJS) $(LIB) \
++	$(CCC) $(CFLAGS) $(LDFLAGS) $(OBJS) $(LIB) \
+ 	    -lsqlite3 -lcrypto -lpthread -lm -o dupd
+ 
+ $(BUILD)/%.o: src/%.c src/%.h
+-- 
+2.53.0
+

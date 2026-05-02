@@ -27,13 +27,7 @@
 # Or, pass in the name(s) of the individual test(s) to run.
 #
 
-if ($ENV{'DUPD_VALGRIND'}) {
-    $ENV{'DUPD_CMD'} =
-        "valgrind --error-exitcode=1 --tool=memcheck " .
-        "--leak-check=full --show-reachable=yes dupd";
-} else {
-    $ENV{'DUPD_CMD'} = "dupd";
-}
+$ENV{'DUPD_CMD'} = "dupd";
 
 # Needed for sort to work correctly
 $ENV{'LC_ALL'} = "C";

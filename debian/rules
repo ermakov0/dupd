@@ -16,8 +16,7 @@ export INSTALL_PREFIX = /usr
 	dh $@ --with bash-completion
 
 # already install into /usr/share/man/
-override_dh_auto_install:
-	dh_auto_install
+execute_after_dh_auto_install:
 	rm -rf debian/dupd/usr/man/
 
 # use autopkgtest instead

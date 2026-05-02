@@ -1,0 +1,68 @@
+From: Alexander Ermakov <ermakovav@altgtu.ru>
+Date: Sat, 2 May 2026 11:58:07 +0700
+Subject: [PATCH] Fix tests
+Forwarded: not-needed
+Last-Update: 2026-05-02
+
+---
+ tests/run     |  8 +-------
+ tests/test.30 | 10 ----------
+ tests/test.31 | 10 ----------
+ 3 files changed, 1 insertion(+), 27 deletions(-)
+ delete mode 100755 tests/test.30
+ delete mode 100755 tests/test.31
+
+diff --git a/tests/run b/tests/run
+index 0644b56..28c29c6 100755
+--- a/tests/run
++++ b/tests/run
+@@ -27,13 +27,7 @@
+ # Or, pass in the name(s) of the individual test(s) to run.
+ #
+ 
+-if ($ENV{'DUPD_VALGRIND'}) {
+-    $ENV{'DUPD_CMD'} =
+-        "valgrind --error-exitcode=1 --tool=memcheck " .
+-        "--leak-check=full --show-reachable=yes ../dupd";
+-} else {
+-    $ENV{'DUPD_CMD'} = "../dupd";
+-}
++$ENV{'DUPD_CMD'} = "dupd";
+ 
+ # Needed for sort to work correctly
+ $ENV{'LC_ALL'} = "C";
+diff --git a/tests/test.30 b/tests/test.30
+deleted file mode 100755
+index 9fb5fbc..0000000
+--- a/tests/test.30
++++ /dev/null
+@@ -1,10 +0,0 @@
+-#!/usr/bin/env bash
+-
+-source common
+-
+-DESC="usage option"
+-
+-$DUPD_CMD usage > /dev/null
+-checkrv $?
+-
+-tdone
+diff --git a/tests/test.31 b/tests/test.31
+deleted file mode 100755
+index 963c1aa..0000000
+--- a/tests/test.31
++++ /dev/null
+@@ -1,10 +0,0 @@
+-#!/usr/bin/env bash
+-
+-source common
+-
+-DESC="license option"
+-
+-$DUPD_CMD license > /dev/null
+-checkrv $?
+-
+-tdone
+-- 
+2.53.0
+
